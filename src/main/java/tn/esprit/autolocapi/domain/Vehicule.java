@@ -21,7 +21,7 @@ public class Vehicule
      @GeneratedValue(strategy= GenerationType.IDENTITY)
     Long idVehicule;
     @Column(nullable = false, unique = true , length = 20)
-    String imatriculation;
+    String immatriculation;
     @Column(nullable = false, length = 50)
     String marque;
     @Column(nullable = false, length = 50)

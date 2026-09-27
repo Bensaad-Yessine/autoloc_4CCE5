@@ -7,7 +7,7 @@ import java.util.Date;
 import java.util.Locale;
 import lombok.*;
 @Entity
-@Table(name="Maibtenance")
+@Table(name="maintenance")
 @Getter
 @Setter
 @AllArgsConstructor
