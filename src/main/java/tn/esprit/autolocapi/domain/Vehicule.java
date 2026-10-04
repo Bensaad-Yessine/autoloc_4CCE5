@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Entity
 @Getter
@@ -29,11 +30,15 @@ public class Vehicule
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, length = 20)
     CategorieVehicule categorie;
-
     @Column(nullable = false, precision = 10, scale = 2)
     BigDecimal tarifJournalier ;
-
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, length = 20)
     StatutVehicule statut ;
+    @ManyToMany(fetch = FetchType.EAGER)
+    List<Equipement> equipements;
+    @ManyToOne
+    Agence agence;
+    @OneToMany(mappedBy = "vehicule", cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    List<Reservation> reservations;
 }

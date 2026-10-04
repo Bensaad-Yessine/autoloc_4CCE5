@@ -5,6 +5,8 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.Date;
+import java.util.List;
+
 @Entity
 @Getter
 @Setter
@@ -20,9 +22,14 @@ public class Agence {
     private String nom  ;
     @Column(nullable = false , length = 50)
     private String ville ;
-    @Column(nullable = false , length = 250)
+    @Column(nullable = false , length = 50)
     private String adresse ;
     @Column(nullable = false , length = 50)
     private String telephone ;
+
+    @OneToMany(mappedBy = "agence",cascade = CascadeType.ALL)
+    List<Employe> employes ;
+    @OneToMany(mappedBy = "agence",cascade = CascadeType.ALL)
+    List<Vehicule> Vehicules ;
 
 }

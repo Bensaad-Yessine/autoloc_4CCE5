@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.List;
+
 import lombok.*;
 
 @Entity
@@ -21,4 +23,8 @@ public class Contrat {
     private  LocalDate dateSignature;
     private BigDecimal montantTotal;
     private  Boolean valide ;
+    @OneToOne
+    Reservation reservation;
+    @OneToMany(mappedBy = "contrat",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    List<Paiement> paiements;
 }

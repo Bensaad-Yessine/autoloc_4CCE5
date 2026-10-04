@@ -2,6 +2,7 @@ package tn.esprit.autolocapi.domain;
 
 import jakarta.persistence.*;
 import lombok.* ;
+import org.hibernate.mapping.List;
 
 @Entity
 @Table(name="Employe")
@@ -19,4 +20,6 @@ public class Employe {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false , length = 20)
     private RoleEmploye role ;
+    @ManyToOne
+    Agence agence ;
 }

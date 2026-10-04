@@ -3,6 +3,8 @@ package tn.esprit.autolocapi.domain;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.List;
+
 import lombok.* ;
 import org.hibernate.Length;
 
@@ -27,4 +29,7 @@ public class Client {
     private String numPermis;
     @Column( nullable = false )
     private LocalDate dateInscription;
+
+    @OneToMany(mappedBy = "client",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    List<Reservation> Reservations;
 }

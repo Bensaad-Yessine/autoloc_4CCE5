@@ -2,6 +2,9 @@ package tn.esprit.autolocapi.domain;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.data.repository.cdi.Eager;
+
+import java.util.List;
 
 @Entity
 @Table(name = "equipement")
@@ -15,4 +18,7 @@ public class Equipement {
     private int idEquipement;
 
     private String libelle ;
+    @ManyToMany(mappedBy = "equipements")
+    List<Vehicule> vehicules;
+
 }
