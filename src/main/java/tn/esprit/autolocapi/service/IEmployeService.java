@@ -10,4 +10,6 @@ public interface IEmployeService {
     public List<Employe> findAll();
     public Employe AjouterEmploye(Employe employe);
     public Employe ModifierEmploye(Employe employe);
+    public Employe desaffectAgence(Long idEmployee);
+    public Employe affectAgence(Long idEmployee,Long idAgence);
 }
